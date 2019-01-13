@@ -55,13 +55,16 @@ def search(arr, ptrn, L, R):
 
 # CourseCode to binary
 
-def CourseCode_to_binary(Code,Discipline_encode,Level_encode,Last_Digit_encode):
-    Discipline,Num=Code.split()
+def CourseCode_to_binary(Code,Discipline_encode,Level_encode,Last_Digits_encode):
+    if len(Code.split())==2:
+        Discipline,Num=Code.split()
+    else:
+        Discipline,Num,Extra=Code.split()
     Level=Num[:1]
     Last_Digit=Num[1:]
     Discipline_binary=Discipline_encode[Discipline]
     Level_binary=Level_encode[Level]
-    Last_Digit_binary=Last_Digit_encode[Last_Digit]
+    Last_Digits_binary=Last_Digits_encode[Last_Digit]
 
-    CourseCode_binary=Discipline_binary+Level_binary+Last_Digit_binary
+    CourseCode_binary=Discipline_binary+Level_binary+Last_Digits_binary
     return CourseCode_binary
